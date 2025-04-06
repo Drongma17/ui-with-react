@@ -1,0 +1,66 @@
+import "./App.css";
+
+import Header from "./component/header";
+import About from "./component/about";
+import ProjectList from "./component/ProjectList";
+import Contact from "./component/Contact";
+import Footer from "./component/Footer";
+import ProfileCard from "./component/ProfileCard";
+import MagicProfile from "./component/MajigProfile";
+
+function App() {
+
+const person ={name: "Ngawang", age: 43};
+
+// without destructuring, using Dot notation
+// const name = person.name;
+// const age = person.age;
+ 
+// with structuring
+const {name, age} = person;
+
+const hobby1 = ['reading', 'cooking','playing-music'];
+const hobby2 = ['hiking', 'skiding','playing-music'];
+
+const handleHobbyClick = (hobby)=>{
+  alert(`you clicked on: ${hobby}`)
+}
+const aliceProfile ={
+  name: "Yeshi",
+  age:23,
+  isMember: true,
+  hobbies: ['Reading', 'Cooking'],
+  onHobbyClick: handleHobbyClick
+}
+const aliceProfile1 ={
+  name: "Pema",
+  age:3,
+  isMember: true,
+  hobbies: ['Reading', 'Writing'],
+  onHobbyClick: handleHobbyClick
+}
+  return (
+    <div className="App">
+      <Header />
+      <About />
+      <ProjectList />
+      <Contact number='7633211415' 
+      age={43}
+       address="Diamond Eight Terrace" isMember={true}  />
+      <Contact number='763562055' age={42} address="Diamond Eight Terrace" isMember={false}  />
+      {/* <ProfileCard name="Yeshi" age={32} isMember={true}  hobbies={hobby1} onHobbyClick={handleHobbyClick} />
+      <ProfileCard name="Sonam" age={30} isMember={true}  hobbies={hobby2} onHobbyClick={handleHobbyClick} />
+       */}
+       {/* spread operator */}
+       <ProfileCard {...aliceProfile}></ProfileCard>
+       <ProfileCard {...aliceProfile1}></ProfileCard>
+      <MagicProfile />
+    </div>
+  );
+}
+
+export default App;
+
+
+1
+====================================================
